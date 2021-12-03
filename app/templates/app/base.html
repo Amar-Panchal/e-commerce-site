@@ -1,0 +1,141 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!--Owl Carousel CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+
+    <title>Ecommerce | {% block title %} {% endblock title %} </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container-fluid">
+       <a class="navbar-brand" href="/">Ecommerce</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="/">Home</a>
+           </li>
+           <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle text-white" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Electronics
+             </a>
+             <ul class="dropdown-menu bg-dark" aria-labelledby="electronicsDropdown">
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'mobile' %}">Mobile</a></li>
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'headphone' %}">Headphones</a></li>
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'trimmer' %}">Trimmers</a></li>
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'powerbank' %}">Powerbank</a></li>
+
+             </ul>
+           </li>
+           <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle text-white" href="#" id="fashionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Fashion
+             </a>
+             <ul class="dropdown-menu bg-dark" aria-labelledby="fashionDropdown">
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'topwear' %}">Shirts</a></li>
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'bottomwear' %}">Pants</a></li>
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'shoes' %}">Shoes</a></li>
+               <li><a class="dropdown-item list-group-item-action " href="{% url 'sandals' %}">Sandals</a></li>
+             </ul>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="{% url 'book' %}">Books</a>
+           </li>
+         </ul>
+         <form class="d-flex">
+           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+           <button class="btn btn-warning" type="submit">🕵️</button>
+         </form>
+         <div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+           <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               <span class="text-capitalize"> {{request.user}}</span>
+              </a>
+              <ul class="dropdown-menu bg-dark" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item  list-group-item-action" href="{% url 'profile' %}">Profile</a></li>
+                <li><a class="dropdown-item  list-group-item-action" href="{% url 'orders' %}">Orders</a></li>
+                <li><a class="dropdown-item  list-group-item-action" href="{% url 'passwordchange' %}">Change Password</a></li>
+                <li><a class="dropdown-item  list-group-item-action" href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+            </li>
+            
+            <li class="nav-item mx-2">
+             <a href="{% url 'showcart' %}" class="nav-link text-white">
+               <span class="badge bg-danger"></span> Cart </a>
+            </li>
+            
+            {% else %}
+            <li class="nav-item mx-2">
+             <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+            </li>
+            <li class="nav-item mx-2">
+             <a href="{% url 'customerregistration' %}" 
+              class="nav-link text-white">Registration</a>
+            </li>
+            {% endif %}
+          </ul>
+         </div>
+       </div>
+     </div>
+    </nav>
+    <div >
+    {% block banner_slider %} {% endblock banner_slider %}
+    {% block livesale %} {% endblock livesale %}
+    {% block main-content %} {% endblock main-content %}
+    </div>
+    
+    <br><br><br><br>
+
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container-fluid"><br>
+         <h1 class="thank">🛒  Thank You <span class="spa"> ! </span>  🛒<h1>            
+          <br>
+         </div>
+       </div>
+     </div>
+    </nav>
+    <style>
+    .thank{
+      color:white;
+      text-align:center;
+      font-family:serif;
+      letter-spacing: 3px;
+    }
+    .spa{
+      color:red;  
+
+    }
+    </style>
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/myscript.js' %}"></script>
+  </body>
+</html>

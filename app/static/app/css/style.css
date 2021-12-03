@@ -1,0 +1,32 @@
+.owl-carousel .item{
+ border:10px solid white; 
+ font-size: 24px;
+ text-align: center;
+
+
+}
+.owl-next{
+    text-align: center;
+    border:white;
+    margin-right:70px;
+    
+  }
+  .owl-prev{
+      text-align: center;
+      margin-left:40px;
+      border:white;
+  }
+  .owl-prev span{
+  font-size: 70px;
+  font-weight: bolder;
+  border: 10px solid white; 
+  margin-left:40px;
+  border: white;
+  }
+  .owl-next span{
+  font-size: 70px;
+  font-weight: bolder;
+  border: 10px solid white;
+  margin-right:70px;
+  border:white
+  }
