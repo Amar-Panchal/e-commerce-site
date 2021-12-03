@@ -1,6 +1,6 @@
 <h2>E-commerce Site </h2>
 <h4> E-commerce site create using python-Django and use database sqlite , django admin panel </h4>
-(https://user-images.githubusercontent.com/91047824/144634987-d9f40513-a0fe-4101-a5ec-16eb780542eb.png)
+https://user-images.githubusercontent.com/91047824/144634987-d9f40513-a0fe-4101-a5ec-16eb780542eb.png
 ![2nd](https://user-images.githubusercontent.com/91047824/144634896-7cee7d18-a98a-486e-81b6-465e6907af1d.png)
 ![3rd](https://user-images.githubusercontent.com/91047824/144634905-f68d8e69-973f-4417-b7a3-7d789035f4f1.png)
 ![4th](https://user-images.githubusercontent.com/91047824/144634915-b3b1aa67-81cd-4408-ae5f-cc99fa3956a0.png)
